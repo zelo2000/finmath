@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
-import PageHeader from '../../components/PageHeader/PageHeader';
+import React, { FC } from "react";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 const Task5: FC = () => {
   return (
     <div>
-      <PageHeader title="Task 5" />
+      <PageHeader
+        title="Тема 5."
+        description="Еквівалентність відсоткових ставок та змінаг умов фінансових угод"
+      />
     </div>
   );
 };

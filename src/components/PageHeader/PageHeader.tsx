@@ -1,17 +1,22 @@
-import React, { FC } from 'react';
-import { Link } from "react-router-dom";
+import React, { FC } from "react";
+import { PageHeader } from "antd";
 
 interface PageHeaderProps {
-  title: string
+	title: string;
+	description: string;
 }
 
-const PageHeader: FC<PageHeaderProps> = ({ title }: PageHeaderProps) => {
-  return (
-    <div>
-      <Link to="/">Back</Link>
-      {title}
-    </div>
-  );
+const CustomPageHeader: FC<PageHeaderProps> = ({
+	title,
+	description,
+}: PageHeaderProps) => {
+	return (
+		<PageHeader
+			className="site-page-header"
+			title={title}
+			subTitle={description}
+		/>
+	);
 };
 
-export default PageHeader;
+export default CustomPageHeader;

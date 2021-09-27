@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
-import PageHeader from '../../components/PageHeader/PageHeader';
+import React, { FC } from "react";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 const Task4: FC = () => {
   return (
     <div>
-      <PageHeader title="Task 4" />
+      <PageHeader
+        title="Тема 4."
+        description="Неперервні відсотки. Неперервне нарощення та дисконтування"
+      />
     </div>
   );
 };
