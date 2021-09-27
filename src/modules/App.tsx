@@ -21,7 +21,7 @@ const App: FC = () => {
       <Switch>
         <Layout className="main-layout">
           <Navigation />
-          <Layout>
+          <Layout className="content-layout">
             <Content>
               <Route exact path="/" component={Home} />
               <Route path="/task/1" component={Task1} />
