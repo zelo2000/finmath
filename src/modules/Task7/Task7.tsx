@@ -5,8 +5,8 @@ const Task6: FC = () => {
   return (
     <div>
       <PageHeader
-        title="Тема 6."
-        description="Потоки платежів і фінансові ренти"
+        title="Тема 7."
+        description="Планування погашення заборгованності"
       />
     </div>
   );
