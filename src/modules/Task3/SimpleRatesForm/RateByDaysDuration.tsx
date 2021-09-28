@@ -1,24 +1,25 @@
 import React, { FC, useCallback } from "react";
-import { Col, Form, InputNumber, Row } from "antd";
+import { Checkbox, Col, Form, InputNumber, Row } from "antd";
 
 import { round } from '../../../utils/helpers';
 
-export interface DurationByDiscountRateProps {
+export interface RateByDaysDurationProps {
     currentDebt: number;
     futureDebt: number;
     discountRate: number;
-    yearsDuration: number;
+    leapYear: boolean,
+    interestRate: number;
     daysDuration: number;
 }
 
-const DurationByDiscountRate: FC = () => {
-    const [form] = Form.useForm<DurationByDiscountRateProps>();
+const RateByDaysDuration: FC = () => {
+    const [form] = Form.useForm<RateByDaysDurationProps>();
 
-    const handleChange = useCallback((_, allValues: DurationByDiscountRateProps) => {
-        if (allValues.futureDebt && allValues.currentDebt && allValues.discountRate) {
-            const yearsDuration = (1 - (allValues.currentDebt / allValues.futureDebt)) / (allValues.discountRate / 100);
-            const daysDuration = yearsDuration * 360;
-            form.setFieldsValue({ yearsDuration: round(yearsDuration, 1), daysDuration: round(daysDuration, 1) });
+    const handleChange = useCallback((_, allValues: RateByDaysDurationProps) => {
+        if (allValues.futureDebt && allValues.currentDebt && allValues.daysDuration) {
+            const interestRate = ((allValues.futureDebt / allValues.currentDebt) - 1) * (allValues.leapYear ? 366 : 365) / allValues.daysDuration;
+            const discountRate = (1 - (allValues.currentDebt / allValues.futureDebt)) * 360 / allValues.daysDuration;
+            form.setFieldsValue({ interestRate: round(interestRate * 100, 1), discountRate: round(discountRate * 100, 1) });
         }
     }, [form]);
 
@@ -33,11 +34,11 @@ const DurationByDiscountRate: FC = () => {
             >
                 <Row
                     justify="start"
-                    align="top"
+                    align="bottom"
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
                             name="currentDebt"
                             label="Сучасна сума боргу (P)"
@@ -45,7 +46,7 @@ const DurationByDiscountRate: FC = () => {
                             <InputNumber placeholder="10000" />
                         </Form.Item>
                     </Col>
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
                             name="futureDebt"
                             label="Майбутня сума боргу (S)"
@@ -54,12 +55,18 @@ const DurationByDiscountRate: FC = () => {
                         </Form.Item>
                     </Col>
 
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
-                            name="discountRate"
-                            label="Облікова ставка (d) %"
+                            name="daysDuration"
+                            label="Тривалість періоду у днях (t)"
                         >
-                            <InputNumber placeholder="25" min={0} max={100} />
+                            <InputNumber placeholder="365" />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={5}>
+                        <Form.Item name="leapYear" valuePropName="checked">
+                            <Checkbox>Високосний рік</Checkbox>
                         </Form.Item>
                     </Col>
                 </Row>
@@ -70,18 +77,18 @@ const DurationByDiscountRate: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
-                            name="yearsDuration"
-                            label="Тривалість періоду у роках (n)"
+                            name="interestRate"
+                            label="Відсоткова ставка (i) %"
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
-                            name="daysDuration"
-                            label="Тривалість періоду у днях (t)"
+                            name="discountRate"
+                            label="Облікова ставка (d) %"
                         >
                             <InputNumber disabled />
                         </Form.Item>
@@ -92,4 +99,4 @@ const DurationByDiscountRate: FC = () => {
     );
 };
 
-export default DurationByDiscountRate;
+export default RateByDaysDuration;

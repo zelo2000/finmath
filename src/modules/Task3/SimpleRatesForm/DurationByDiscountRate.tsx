@@ -3,22 +3,22 @@ import { Col, Form, InputNumber, Row } from "antd";
 
 import { round } from '../../../utils/helpers';
 
-export interface RateByYearsDurationProps {
+export interface DurationByDiscountRateProps {
     currentDebt: number;
     futureDebt: number;
     discountRate: number;
-    interestRate: number;
     yearsDuration: number;
+    daysDuration: number;
 }
 
-const RateByYearsDuration: FC = () => {
-    const [form] = Form.useForm<RateByYearsDurationProps>();
+const DurationByDiscountRate: FC = () => {
+    const [form] = Form.useForm<DurationByDiscountRateProps>();
 
-    const handleChange = useCallback((_, allValues: RateByYearsDurationProps) => {
-        if (allValues.futureDebt && allValues.currentDebt && allValues.yearsDuration) {
-            const interestRate = ((allValues.futureDebt / allValues.currentDebt) - 1) / allValues.yearsDuration;
-            const discountRate = (1 - (allValues.currentDebt / allValues.futureDebt)) / allValues.yearsDuration;
-            form.setFieldsValue({ interestRate: round(interestRate * 100, 1), discountRate: round(discountRate * 100, 1) });
+    const handleChange = useCallback((_, allValues: DurationByDiscountRateProps) => {
+        if (allValues.futureDebt && allValues.currentDebt && allValues.discountRate) {
+            const yearsDuration = (1 - (allValues.currentDebt / allValues.futureDebt)) / (allValues.discountRate / 100);
+            const daysDuration = yearsDuration * 360;
+            form.setFieldsValue({ yearsDuration: round(yearsDuration, 1), daysDuration: round(daysDuration, 1) });
         }
     }, [form]);
 
@@ -37,7 +37,7 @@ const RateByYearsDuration: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
                             name="currentDebt"
                             label="Сучасна сума боргу (P)"
@@ -45,7 +45,7 @@ const RateByYearsDuration: FC = () => {
                             <InputNumber placeholder="10000" />
                         </Form.Item>
                     </Col>
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
                             name="futureDebt"
                             label="Майбутня сума боргу (S)"
@@ -54,12 +54,12 @@ const RateByYearsDuration: FC = () => {
                         </Form.Item>
                     </Col>
 
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
-                            name="yearsDuration"
-                            label="Тривалість періоду у роках (n)"
+                            name="discountRate"
+                            label="Облікова ставка (d) %"
                         >
-                            <InputNumber placeholder="2" />
+                            <InputNumber placeholder="25" min={0} max={100} />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -70,18 +70,18 @@ const RateByYearsDuration: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
-                            name="interestRate"
-                            label="Проста відсоткова ставка (i) %"
+                            name="yearsDuration"
+                            label="Тривалість періоду у роках (n)"
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
-                    <Col span={4}>
+                    <Col span={5}>
                         <Form.Item
-                            name="discountRate"
-                            label="Облікова ставка (d) %"
+                            name="daysDuration"
+                            label="Тривалість періоду у днях (t)"
                         >
                             <InputNumber disabled />
                         </Form.Item>
@@ -92,4 +92,4 @@ const RateByYearsDuration: FC = () => {
     );
 };
 
-export default RateByYearsDuration;
+export default DurationByDiscountRate;
