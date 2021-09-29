@@ -8,6 +8,12 @@ import FutureDepositForceByInterestRate from './ConstantForceForm/FutureDepositF
 import СurrentDepositInterestRateByForce from './ConstantForceForm/СurrentDepositInterestRateByForce';
 import СurrentDepositForceByInterestRate from './ConstantForceForm/СurrentDepositForceByInterestRate';
 
+import IncreaseMultiplier from './VariableForceForm/IncreaseMultiplier';
+import YearsDurationByConstantForce from './VariableForceForm/YearsDurationByConstantForce';
+import ConstantForceByYearsDuration from './VariableForceForm/ConstantForceByYearsDuration';
+import YearsDurationByVariableForce from './VariableForceForm/YearsDurationByVariableForce';
+import VariableForceByYearsDuration from './VariableForceForm/VariableForceByYearsDuration';
+
 const { Title } = Typography;
 const { TabPane } = Tabs;
 
@@ -36,14 +42,19 @@ const Task4: FC = () => {
 
           <TabPane tab="4.2. Змінна сила росту" key="2">
             <Title level={5}>Множник нарощення для лінійної та експонентної залежності</Title>
+            <IncreaseMultiplier />
 
             <Title level={5}>Тривалість періоду в роках для нарощення з постійною силою росту</Title>
+            <YearsDurationByConstantForce />
 
             <Title level={5}>Постійна сила росту на основі тривалості періоду в роках</Title>
+            <ConstantForceByYearsDuration />
 
             <Title level={5}>Тривалість періоду в роках для нарощення зі змінною силою росту та постійним темпом зростання</Title>
+            <YearsDurationByVariableForce />
 
             <Title level={5}>Змінна сила росту з постійним темпом зростання на основі тривалості періоду в роках</Title>
+            <VariableForceByYearsDuration />
           </TabPane>
         </Tabs>
       </div>

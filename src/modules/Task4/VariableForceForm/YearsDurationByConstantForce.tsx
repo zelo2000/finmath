@@ -3,24 +3,22 @@ import { Col, Form, InputNumber, Row } from "antd";
 
 import { round } from '../../../utils/helpers';
 
-export interface СurrentDepositInterestRateByForceProps {
+export interface YearsDurationByConstantForceProps {
     currentDeposit: number;
-    growthForce: number;
-    yearsDuration: number;
-
     futureDeposit: number;
-    interestRate: number;
+    growthForce: number;
+
+    yearsDuration: number;
 }
 
-const СurrentDepositInterestRateByForce: FC = () => {
-    const [form] = Form.useForm<СurrentDepositInterestRateByForceProps>();
+const YearsDurationByConstantForce: FC = () => {
+    const [form] = Form.useForm<YearsDurationByConstantForceProps>();
 
-    const handleChange = useCallback((_, allValues: СurrentDepositInterestRateByForceProps) => {
-        if (allValues.yearsDuration && allValues.futureDeposit && allValues.growthForce) {
+    const handleChange = useCallback((_, allValues: YearsDurationByConstantForceProps) => {
+        if (allValues.currentDeposit && allValues.futureDeposit && allValues.growthForce) {
             const growthForce = allValues.growthForce / 100;
-            const interestRate = Math.exp(growthForce) - 1;
-            const currentDeposit = allValues.futureDeposit * Math.exp(-growthForce * allValues.yearsDuration);
-            form.setFieldsValue({ interestRate: round(interestRate * 100, 2), currentDeposit: round(currentDeposit, 2) });
+            const yearsDuration = Math.log(allValues.futureDeposit / allValues.currentDeposit) / growthForce;
+            form.setFieldsValue({ yearsDuration: round(yearsDuration, 2) });
         }
     }, [form]);
 
@@ -41,20 +39,21 @@ const СurrentDepositInterestRateByForce: FC = () => {
                 >
                     <Col span={5}>
                         <Form.Item
-                            name="futureDeposit"
-                            label="Очікувана сума депозиту (S)"
+                            name="currentDeposit"
+                            label="Початкова сума депозиту (P)"
                         >
-                            <InputNumber placeholder="200000" />
+                            <InputNumber placeholder="1000" />
                         </Form.Item>
                     </Col>
 
                     <Col span={5}>
                         <Form.Item
-                            name="yearsDuration"
-                            label="Тривалість періоду у роках (n)"
+                            name="futureDeposit"
+                            label="Очікувана сума депозиту (S)"
                         >
-                            <InputNumber placeholder="7" />
+                            <InputNumber placeholder="2117" />
                         </Form.Item>
+
                     </Col>
 
                     <Col span={5}>
@@ -62,7 +61,7 @@ const СurrentDepositInterestRateByForce: FC = () => {
                             name="growthForce"
                             label="Сила росту (δ) %"
                         >
-                            <InputNumber placeholder="5" min={0} max={100} />
+                            <InputNumber placeholder="25" min={0} max={100} />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -75,19 +74,12 @@ const СurrentDepositInterestRateByForce: FC = () => {
                 >
                     <Col span={5}>
                         <Form.Item
-                            name="currentDeposit"
-                            label="Початкова сума депозиту (P)"
+                            name="yearsDuration"
+                            label="Тривалість періоду у роках (n)"
                         >
                             <InputNumber disabled />
                         </Form.Item>
-                    </Col>
-                    <Col span={5}>
-                        <Form.Item
-                            name="interestRate"
-                            label="Відсоткова ставка (i) %"
-                        >
-                            <InputNumber disabled />
-                        </Form.Item>
+
                     </Col>
                 </Row>
             </Form>
@@ -95,4 +87,4 @@ const СurrentDepositInterestRateByForce: FC = () => {
     );
 };
 
-export default СurrentDepositInterestRateByForce;
+export default YearsDurationByConstantForce;
