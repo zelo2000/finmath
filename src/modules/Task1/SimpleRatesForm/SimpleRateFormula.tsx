@@ -3,7 +3,7 @@ import { Col, Form, InputNumber, Row } from "antd";
 
 import { round } from '../../../utils/helpers';
 
-export interface SimpleRateFormulaProps {
+export interface SimpleRateFormulaProps { // completely done
     initialLoan: number;
     rate: number;
     term: number;
@@ -37,7 +37,7 @@ const SimpleRateFormula: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={5}>
+                    <Col span={8}>
                         <Form.Item
                             name="initialLoan"
                             label="Cума грошей, що даються в борг (P)"
@@ -45,7 +45,7 @@ const SimpleRateFormula: FC = () => {
                             <InputNumber placeholder="100000" />
                         </Form.Item>
                     </Col>
-                    <Col span={5}>
+                    <Col span={8}>
                         <Form.Item
                             name="rate"
                             label="Відсоткова ставка (і) %"
@@ -54,7 +54,7 @@ const SimpleRateFormula: FC = () => {
                         </Form.Item>
                     </Col>
 
-                    <Col span={5}>
+                    <Col span={8}>
                         <Form.Item
                             name="term"
                             label="Термін угоди у періодах (n)"
@@ -70,7 +70,7 @@ const SimpleRateFormula: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={5}>
+                    <Col span={8}>
                         <Form.Item
                             name="eventualRate"
                             label="Сума процентів за період (I)"
@@ -78,7 +78,7 @@ const SimpleRateFormula: FC = () => {
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
-                    <Col span={5}>
+                    <Col span={8}>
                         <Form.Item
                             name="eventualLoan"
                             label="Нарощена сума (S)"

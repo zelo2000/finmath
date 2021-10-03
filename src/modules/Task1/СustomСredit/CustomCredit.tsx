@@ -38,7 +38,7 @@ const CustomCredit: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={5}>
+                    <Col span={6}>
                         <Form.Item
                             name="initialLoan"
                             label="Cума грошей, що даються в борг (P)"
@@ -46,7 +46,7 @@ const CustomCredit: FC = () => {
                             <InputNumber placeholder="100000" />
                         </Form.Item>
                     </Col>
-                    <Col span={5}>
+                    <Col span={6}>
                         <Form.Item
                             name="rate"
                             label="Відсоткова ставка (і) %"
@@ -55,7 +55,7 @@ const CustomCredit: FC = () => {
                         </Form.Item>
                     </Col>
 
-                    <Col span={5}>
+                    <Col span={6}>
                         <Form.Item
                             name="term"
                             label="Термін угоди у роках (n)"
@@ -64,7 +64,7 @@ const CustomCredit: FC = () => {
                         </Form.Item>
                     </Col>                    
 
-                    <Col span={5}>
+                    <Col span={6}>
                         <Form.Item
                             name="paymentCount"
                             label="Кількість виплат у році (m)"
@@ -80,7 +80,7 @@ const CustomCredit: FC = () => {
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
-                    <Col span={5}>
+                    <Col span={6}>
                         <Form.Item
                             name="eventualLoan"
                             label="Нарощена сума (S)"
@@ -88,7 +88,7 @@ const CustomCredit: FC = () => {
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
-                    <Col span={5}>
+                    <Col span={6}>
                         <Form.Item
                             name="oneTimePayment"
                             label="Величина разової виплати (R)"
