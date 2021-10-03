@@ -29,5 +29,10 @@
 }
 
 .ant-row.row-without-margin {
-  margin: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.ant-form .ant-row.year-select-block{
+  margin-bottom: 20px;
 }

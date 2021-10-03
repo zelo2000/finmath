@@ -3,7 +3,7 @@ import { Col, Form, InputNumber, Row } from "antd";
 
 import { round } from '../../../utils/helpers';
 
-export interface CustomCreditProps {
+export interface CustomCreditProps { // completely done
     initialLoan: number;
     rate: number;
     term: number;    
