@@ -3,21 +3,24 @@ import { Col, Form, InputNumber, Row } from "antd";
 
 import { round } from '../../../utils/helpers';
 
-export interface SimpleRateFormulaProps { // completely done
+export interface MixedMethodProps { // completely done
     initialLoan: number;
     rate: number;
-    term: number;
+    completeTerms: number;
+    daysAmount: number;
+    yearDaysAmount: number;
     eventualLoan: number;
     eventualRate: number;
 }
 
-const SimpleRateFormula: FC = () => {
-    const [form] = Form.useForm<SimpleRateFormulaProps>();
+const MixedMethod: FC = () => {
+    const [form] = Form.useForm<MixedMethodProps>();
 
-    const handleChange = useCallback((_, allValues: SimpleRateFormulaProps) => {
-        if (allValues.initialLoan && allValues.rate && allValues.term) {
-            const eventualRate = allValues.term * allValues.initialLoan * (allValues.rate / 100);
-            const eventualLoan = allValues.initialLoan * (1 + allValues.term * (allValues.rate / 100));
+    const handleChange = useCallback((_, allValues: MixedMethodProps) => {
+        if (allValues.initialLoan && allValues.rate && (allValues.completeTerms || (allValues.daysAmount && allValues.yearDaysAmount))) {
+            let rate = allValues.rate / 100;
+            const eventualLoan = allValues.initialLoan * Math.pow((1 + rate), allValues.completeTerms) * (1 + (allValues.daysAmount / allValues.yearDaysAmount * rate));
+            const eventualRate = eventualLoan - allValues.initialLoan;
             form.setFieldsValue({ eventualLoan: round(eventualLoan, 2), eventualRate: round(eventualRate, 2) });
         }
     }, [form]);
@@ -42,7 +45,7 @@ const SimpleRateFormula: FC = () => {
                             name="initialLoan"
                             label="Cума грошей, яку дають в борг (P)"
                         >
-                            <InputNumber placeholder="100000" />
+                            <InputNumber placeholder="300000" />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
@@ -53,35 +56,58 @@ const SimpleRateFormula: FC = () => {
                             <InputNumber placeholder="25" />
                         </Form.Item>
                     </Col>
+                </Row>
 
+                <Row
+                    justify="start"
+                    align="bottom"
+                    gutter={[16, 0]}
+                    className="row-without-margin"
+                >
                     <Col span={8}>
                         <Form.Item
-                            name="term"
-                            label="Термін угоди у періодах (n)"
+                            name="completeTerms"
+                            label="Термін угоди у роках (n)"
                         >
-                            <InputNumber placeholder="5" />
+                            <InputNumber placeholder="2" />
+                        </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                        <Form.Item
+                            name="daysAmount"
+                            label="Кількість днів позики (t)"
+                        >
+                            <InputNumber placeholder="155" />
+                        </Form.Item>
+                    </Col>
+                    <Col span={8}>
+                        <Form.Item
+                            name="yearDaysAmount"
+                            label="Кількість днів у році (K)"
+                        >
+                            <InputNumber placeholder="365" />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
                     justify="start"
-                    align="top"
+                    align="bottom"
                     gutter={[16, 0]}
                     className="row-without-margin"
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="eventualRate"
-                            label="Сума процентів за період (I)"
+                            name="eventualLoan"
+                            label="Нарощена сума (S)"
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="eventualLoan"
-                            label="Нарощена сума (S)"
+                            name="eventualRate"
+                            label="Сума процентів за період (I)"
                         >
                             <InputNumber disabled />
                         </Form.Item>
@@ -92,4 +118,4 @@ const SimpleRateFormula: FC = () => {
     );
 };
 
-export default SimpleRateFormula;
+export default MixedMethod;

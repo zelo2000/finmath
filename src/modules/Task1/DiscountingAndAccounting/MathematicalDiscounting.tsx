@@ -9,7 +9,6 @@ export interface MathematicalDiscountingProps { // completely done
     term: number;
     daysAmount: number;
     yearDaysAmount: number;
-    paymentCount: number;
     eventualLoan: number;
     discount: number;
 }
@@ -128,7 +127,7 @@ const MathematicalDiscounting: FC = () => {
                     <Col span={8}>
                         <Form.Item
                             name="initialLoan"
-                            label="Cума грошей, що даються в борг (P)"
+                            label="Cума грошей, яку дають в борг (P)"
                         >
                             <InputNumber disabled />
                         </Form.Item>

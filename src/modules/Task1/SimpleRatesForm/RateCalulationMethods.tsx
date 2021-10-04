@@ -56,7 +56,7 @@ const RateCalulationMethods: FC = () => {
                     <Col span={8}>
                         <Form.Item
                             name="initialLoan"
-                            label="Cума грошей, що даються в борг (P)"
+                            label="Cума грошей, яку дають в борг (P)"
                         >
                             <InputNumber placeholder="100000" />
                         </Form.Item>
