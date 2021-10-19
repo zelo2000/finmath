@@ -4,11 +4,15 @@ import MixedMethod from "./ComplexRatesForm/MixedMethod";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ComplexRateFormula from "./ComplexRatesForm/ComplexRateFormula";
 import NominaInterestRate from "./ComplexRatesForm/NominaInterestRate";
+import BankAccounting from "./DiscountingAndAccounting/BankAccounting";
 import EffectiveInterestRate from "./ComplexRatesForm/EffectiveInterestRate";
 import NominalRatesTransition from "./ComplexRatesForm/NominalRatesTransition";
+import ComplexRateIncrease from "./DiscountingAndAccounting/ComplexRateIncrease";
 import NominalEffectiveTransition from "./ComplexRatesForm/NominalEffectiveTransition";
 import MathematicalDiscounting from "./DiscountingAndAccounting/MathematicalDiscounting";
+import BankAccountingSeveralTerms from "./DiscountingAndAccounting/BankAccountingSeveralTerms";
 import MathematicalDiscountingSeveralTerms from "./DiscountingAndAccounting/MathematicalDiscountingSeveralTerms";
+import NominalEffectiveTransitionAccounting from "./DiscountingAndAccounting/NominalEffectiveTransitionAccounting";
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -47,7 +51,7 @@ const Task2: FC = () => {
 						<Title level={5}>Перехід від ефективної до номінальної відсоткової ставки і навпаки</Title>
 						<NominalEffectiveTransition />
 						<Divider />
-						
+
 						<Title level={5}>Перехід між номінальними ставками</Title>
 						<NominalRatesTransition />
 					</TabPane>
@@ -61,11 +65,21 @@ const Task2: FC = () => {
 						<MathematicalDiscountingSeveralTerms />
 						<Divider />
 
-						<Title level={5}>Відсоткова ставка на основі тривалість періоду в роках</Title>
+						<Title level={5}>Облік за складною обліковою ставкою</Title>
+						<BankAccounting />
 						<Divider />
 
-						<Title level={5}>Облікова ставка на основі тривалість періоду в роках</Title>
-						
+						<Title level={5}>Облік за складною обліковою ставкою (нарахування відсотків m разів на рік)</Title>
+						<BankAccountingSeveralTerms />
+						<Divider />
+
+						<Title level={5}>Перехід між ефективною та номінальною обліковими ставками</Title>
+						<NominalEffectiveTransitionAccounting />
+						<Divider />
+
+						<Title level={5}>Нарощення за складною обліковою ставкою</Title>
+						<ComplexRateIncrease />
+
 					</TabPane>
 				</Tabs>
 			</div>
