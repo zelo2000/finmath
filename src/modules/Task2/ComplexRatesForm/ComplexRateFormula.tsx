@@ -40,7 +40,7 @@ const ComplexRateFormula: FC = () => {
                     <Col span={8}>
                         <Form.Item
                             name="initialLoan"
-                            label="Cума грошей, яку дають в борг (P)"
+                            label="Початкова сума (P)"
                         >
                             <InputNumber placeholder="100000" />
                         </Form.Item>
