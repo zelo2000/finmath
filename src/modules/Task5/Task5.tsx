@@ -9,6 +9,12 @@ import {
 } from './SimpleAndAccountingInterestRatesEquivalence/export';
 import {SimpleComplexEqForm} from './SimpleAndComplexInterestRatesEquivalence/SimpleComplexEqForm';
 import {ComplexSimpleEqForm} from './SimpleAndComplexInterestRatesEquivalence/ComplexSimpleEqForm';
+import {SimpleNominalEqForm} from './SimpleAndNominalRateEquivalence/SimpleNominalEqForm';
+import {NominalSimpleEqForm} from './SimpleAndNominalRateEquivalence/NominalAndSimpleEqForm';
+import {AccountingComplexEqForm} from './SimpleAccountingAndComplexRatesEquivalence/AccountingComplexEq';
+import {AccountingComplexEqDaysForm} from './SimpleAccountingAndComplexRatesEquivalence/AccountingComplexEqDays';
+import {ComplexAccountingEqForm} from './SimpleAccountingAndComplexRatesEquivalence/ComplexAccountingEq';
+import {ComplexAccountingEqDaysForm} from './SimpleAccountingAndComplexRatesEquivalence/ComplexAccountingEqDays';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -44,6 +50,34 @@ const Task5: FC = () => {
                   <Title level={5}>Еквівалентна складна відсоткова ставка</Title>
                   <ComplexSimpleEqForm/>
                   <Divider/>
+              </TabPane>
+              <TabPane tab="5.3 Еквівалентність простої та номінальної відсоткових ставок" key={3}>
+                  <Title level={5}>Еквівалентна проста відсоткова ставка</Title>
+                  <NominalSimpleEqForm/>
+                  <Divider/>
+
+                  <Title level={5}>Еквівалентна проста відсоткова ставка</Title>
+                  <SimpleNominalEqForm/>
+                  <Divider/>
+
+              </TabPane>
+
+              <TabPane tab="5.4 Еквівалентність простої облікової і складної ставки відсотка" key={4}>
+                  <Title level={5}>Еквівалентна проста облікова ставка</Title>
+                  <AccountingComplexEqForm/>
+                  <Divider/>
+
+                  <AccountingComplexEqDaysForm/>
+                  <Divider/>
+
+                  <Title level={5}>Еквівалентна складна відсоткова ставка</Title>
+                  <ComplexAccountingEqForm/>
+                  <Divider/>
+
+                  <ComplexAccountingEqDaysForm/>
+                  <Divider/>
+
+
               </TabPane>
           </Tabs>
       </div>
