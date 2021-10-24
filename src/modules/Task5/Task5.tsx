@@ -15,6 +15,10 @@ import {AccountingComplexEqForm} from './SimpleAccountingAndComplexRatesEquivale
 import {AccountingComplexEqDaysForm} from './SimpleAccountingAndComplexRatesEquivalence/AccountingComplexEqDays';
 import {ComplexAccountingEqForm} from './SimpleAccountingAndComplexRatesEquivalence/ComplexAccountingEq';
 import {ComplexAccountingEqDaysForm} from './SimpleAccountingAndComplexRatesEquivalence/ComplexAccountingEqDays';
+import {ComplexAccountingComplexEqForm} from './ComplexAccountingAndComplexRatesEquivalence/ComplexAccountingComplexEq';
+import {ComplexComplexAccountingEqForm} from './ComplexAccountingAndComplexRatesEquivalence/ComplexComplexAccountingEqForm';
+import {ComplexNominalEqForm} from './ComplexAndNominalRatesEquivalence/ComplexNominalEqForm';
+import {NominalComplexEqForm} from './ComplexAndNominalRatesEquivalence/NominalComplexEqFrom';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -29,7 +33,7 @@ const Task5: FC = () => {
       />
       <div className="page-content">
           <Tabs defaultActiveKey="1">
-              <TabPane tab="5.1 Еквівалентність простої ставки відсотків та простої облікової ставки" key={1}>
+              <TabPane tab="5.1 Еквівалентність відсоткових ставок" key={1}>
                   <Title level={5}>Еквівалентна проста відсоткова ставка</Title>
                   <SimpleRateEqForm/>
                   <Divider/>
@@ -41,8 +45,6 @@ const Task5: FC = () => {
                   <Divider/>
                   <SimpleAccountingRateEqFormDays/>
                   <Divider/>
-              </TabPane>
-              <TabPane tab="5.2 Еквівалентність простої та складної відсоткових ставок" key={2}>
                   <Title level={5}>Еквівалентна проста відсоткова ставка</Title>
                   <SimpleComplexEqForm/>
                   <Divider/>
@@ -50,8 +52,6 @@ const Task5: FC = () => {
                   <Title level={5}>Еквівалентна складна відсоткова ставка</Title>
                   <ComplexSimpleEqForm/>
                   <Divider/>
-              </TabPane>
-              <TabPane tab="5.3 Еквівалентність простої та номінальної відсоткових ставок" key={3}>
                   <Title level={5}>Еквівалентна проста відсоткова ставка</Title>
                   <NominalSimpleEqForm/>
                   <Divider/>
@@ -60,9 +60,7 @@ const Task5: FC = () => {
                   <SimpleNominalEqForm/>
                   <Divider/>
 
-              </TabPane>
 
-              <TabPane tab="5.4 Еквівалентність простої облікової і складної ставки відсотка" key={4}>
                   <Title level={5}>Еквівалентна проста облікова ставка</Title>
                   <AccountingComplexEqForm/>
                   <Divider/>
@@ -77,8 +75,23 @@ const Task5: FC = () => {
                   <ComplexAccountingEqDaysForm/>
                   <Divider/>
 
+                  <Title level={5}>Евівалентна складна облікова ставка</Title>
+                  <ComplexAccountingComplexEqForm/>
+                  <Divider/>
 
+                  <Title level={5}>Евівалентна складна відсоткова ставка</Title>
+                  <ComplexComplexAccountingEqForm/>
+                  <Divider/>
+
+                  <Title level={5}>Евівалентна складна облікова ставка </Title>
+                  <ComplexNominalEqForm/>
+                  <Divider/>
+
+                  <Title level={5}>Евівалентна номінальна ставка</Title>
+                  <NominalComplexEqForm/>
+                  <Divider/>
               </TabPane>
+
           </Tabs>
       </div>
     </div>
