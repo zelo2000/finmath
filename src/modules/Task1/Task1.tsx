@@ -1,11 +1,15 @@
 import React, { FC } from "react";
 import { Divider, Tabs, Typography } from "antd";
+
+import CustomCredit from "./СustomСredit/CustomCredit";
+import DifferentRates from "./SimpleRatesForm/DifferentRates";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import SimpleRateFormula from "./SimpleRatesForm/SimpleRateFormula";
-import RateCalulationMethods from "./SimpleRatesForm/RateCalulationMethods";
-import CustomCredit from "./СustomСredit/CustomCredit";
-import MathematicalDiscounting from "./DiscountingAndAccounting/MathematicalDiscounting";
 import BankAccounting from "./DiscountingAndAccounting/BankAccounting";
+import ReinvestmentOfFunds from "./SimpleRatesForm/ReinvestmentOfFunds";
+import RateCalulationMethods from "./SimpleRatesForm/RateCalulationMethods";
+import SimpleRatesChangedTime from "./SimpleRatesChangedTime/SimpleRatesChangedTime";
+import MathematicalDiscounting from "./DiscountingAndAccounting/MathematicalDiscounting";
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -26,18 +30,18 @@ const Task1: FC = () => {
 						<RateCalulationMethods />
 						<Divider />
 
-						<Title level={5}>Облікова та відсоткова ставка на основі тривалості періоду в роках</Title>
-						<SimpleRateFormula />
+						<Title level={5}>Формула простих відсотків (різні відсоткові ставки для різних періодів)</Title>
+						<DifferentRates />
 						<Divider />
 
-						<Title level={5}>Облікова та відсоткова ставка на основі тривалості періоду в днях</Title>
-						<SimpleRateFormula />
+						<Title level={5}>Повторне інвестування коштів</Title>
+						<ReinvestmentOfFunds />
 
 					</TabPane>
 
 					<TabPane tab="1.2. Нарахування простих відсотків на змінні в часі суми депозиту" key="2">
-						<Title level={5}>Тривалість періоду в роках на основі відсоткової ставки</Title>
-
+						<Title level={5}>Нарахування простих відсотків на змінні в часі суми депозиту</Title>
+						<SimpleRatesChangedTime />
 					</TabPane>
 
 					<TabPane tab="1.3. Нарахування відсотків у користувацькому кредиті" key="3">
