@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Divider, Tabs, Typography } from "antd";
+
 import MixedMethod from "./ComplexRatesForm/MixedMethod";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ComplexRateFormula from "./ComplexRatesForm/ComplexRateFormula";
@@ -8,6 +9,7 @@ import BankAccounting from "./DiscountingAndAccounting/BankAccounting";
 import EffectiveInterestRate from "./ComplexRatesForm/EffectiveInterestRate";
 import NominalRatesTransition from "./ComplexRatesForm/NominalRatesTransition";
 import ComplexRateIncrease from "./DiscountingAndAccounting/ComplexRateIncrease";
+import ComplexRatesChangedTime from "./ComplexRatesForm/ComplexRatesChangedTime";
 import NominalEffectiveTransition from "./ComplexRatesForm/NominalEffectiveTransition";
 import MathematicalDiscounting from "./DiscountingAndAccounting/MathematicalDiscounting";
 import BankAccountingSeveralTerms from "./DiscountingAndAccounting/BankAccountingSeveralTerms";
@@ -33,7 +35,7 @@ const Task2: FC = () => {
 						<Divider />
 
 						<Title level={5}>Формула складних відсотків (змінні з часом складні відсоткові ставки)</Title>
-						{/* TODO */}
+						<ComplexRatesChangedTime />
 						<Divider />
 
 						<Title level={5}>Формула складних відсотків (змішаний метод)</Title>
