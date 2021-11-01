@@ -1,5 +1,5 @@
-import React, { FC, useCallback } from "react";
-import { Col, Form, InputNumber, Row } from "antd";
+import React, { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
 
 import { round } from '../../../utils/helpers';
 
@@ -25,63 +25,63 @@ const SimpleRateFormula: FC = () => {
     return (
         <div>
             <Form
-                name="task1"
+                name='task1'
                 form={form}
                 onValuesChange={handleChange}
-                layout="vertical"
-                className="form-content"
+                layout='vertical'
+                className='form-content'
             >
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="initialLoan"
-                            label="Початкова сума (P)"
+                            name='initialLoan'
+                            label='Початкова сума (P)'
                         >
-                            <InputNumber placeholder="100000" />
+                            <InputNumber placeholder='100000' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="rate"
-                            label="Відсоткова ставка (і) %"
+                            name='rate'
+                            label='Відсоткова ставка (і) %'
                         >
-                            <InputNumber placeholder="25" />
+                            <InputNumber placeholder='25' />
                         </Form.Item>
                     </Col>
 
                     <Col span={8}>
                         <Form.Item
-                            name="term"
-                            label="Термін угоди у періодах (n)"
+                            name='term'
+                            label='Термін угоди у періодах (n)'
                         >
-                            <InputNumber placeholder="5" />
+                            <InputNumber placeholder='5' />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="top"
+                    justify='start'
+                    align='top'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="eventualRate"
-                            label="Сума процентів за період (I)"
+                            name='eventualRate'
+                            label='Сума процентів за період (I)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="eventualLoan"
-                            label="Нарощена сума (S)"
+                            name='eventualLoan'
+                            label='Нарощена сума (S)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
