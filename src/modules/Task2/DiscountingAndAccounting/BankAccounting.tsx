@@ -1,5 +1,5 @@
-import React, { FC, useCallback } from "react";
-import { Col, Form, InputNumber, Row } from "antd";
+import React, { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
 
 import { round } from '../../../utils/helpers';
 
@@ -25,62 +25,62 @@ const BankAccounting: FC = () => {
     return (
         <div>
             <Form
-                name="task1"
+                name='task1'
                 form={form}
                 onValuesChange={handleChange}
-                layout="vertical"
-                className="form-content"
+                layout='vertical'
+                className='form-content'
             >
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="eventualLoan"
-                            label="Нарощена сума (S)"
+                            name='eventualLoan'
+                            label='Нарощена сума (S)'
                         >
-                            <InputNumber placeholder="100 000" />
+                            <InputNumber placeholder='100 000' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="rate"
-                            label="Складна облікова ставка (і) %"
+                            name='rate'
+                            label='Складна облікова ставка (і) %'
                         >
-                            <InputNumber placeholder="20" />
+                            <InputNumber placeholder='20' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="term"
-                            label="Термін угоди у роках (n)"
+                            name='term'
+                            label='Термін угоди у роках (n)'
                         >
-                            <InputNumber placeholder="2.5" />
+                            <InputNumber placeholder='3.5' />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="initialLoan"
-                            label="Початкова сума (P)"
+                            name='initialLoan'
+                            label='Початкова сума (P)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="discount"
-                            label="Дисконт (D)"
+                            name='discount'
+                            label='Дисконт (D)'
                         >
                             <InputNumber disabled />
                         </Form.Item>

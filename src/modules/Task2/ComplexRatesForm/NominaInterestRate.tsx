@@ -1,5 +1,5 @@
-import React, { FC, useCallback } from "react";
-import { Col, Form, InputNumber, Row } from "antd";
+import React, { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
 
 import { round } from '../../../utils/helpers';
 
@@ -28,86 +28,86 @@ const NominaInterestRate: FC = () => {
     return (
         <div>
             <Form
-                name="task1"
+                name='task1'
                 form={form}
                 onValuesChange={handleChange}
-                layout="vertical"
-                className="form-content"
+                layout='vertical'
+                className='form-content'
             >
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="initialLoan"
-                            label="Початкова сума (P)"
+                            name='initialLoan'
+                            label='Початкова сума (P)'
                         >
-                            <InputNumber placeholder="100000" />
+                            <InputNumber placeholder='100000' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="rate"
-                            label="Відсоткова ставка (і) %"
+                            name='rate'
+                            label='Відсоткова ставка (і) %'
                         >
-                            <InputNumber placeholder="22" />
+                            <InputNumber placeholder='22' />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="completeTerms"
-                            label="Кількість повних періодів"
+                            name='completeTerms'
+                            label='Кількість повних періодів'
                         >
-                            <InputNumber placeholder="10" />
+                            <InputNumber placeholder='10' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="incompleteTerms"
-                            label="Тривалість неповного періоду"
+                            name='incompleteTerms'
+                            label='Тривалість неповного періоду'
                         >
-                            <InputNumber placeholder="0.33" />
+                            <InputNumber placeholder='0.3333' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="changeAmount"
-                            label="Кількість нарахувань у році (m)"
+                            name='changeAmount'
+                            label='Кількість нарахувань у році (m)'
                         >
-                            <InputNumber placeholder="4" />
+                            <InputNumber placeholder='4' />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="eventualLoanGeneral"
-                            label="Нарощена сума (загальний метод) (S)"
+                            name='eventualLoanGeneral'
+                            label='Нарощена сума (загальний метод) (S)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="eventualLoanMixed"
-                            label="Нарощена сума (змішаний метод) (S)"
+                            name='eventualLoanMixed'
+                            label='Нарощена сума (змішаний метод) (S)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
