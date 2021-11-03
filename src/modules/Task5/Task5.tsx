@@ -19,6 +19,8 @@ import {ComplexAccountingComplexEqForm} from './ComplexAccountingAndComplexRates
 import {ComplexComplexAccountingEqForm} from './ComplexAccountingAndComplexRatesEquivalence/ComplexComplexAccountingEqForm';
 import {ComplexNominalEqForm} from './ComplexAndNominalRatesEquivalence/ComplexNominalEqForm';
 import {NominalComplexEqForm} from './ComplexAndNominalRatesEquivalence/NominalComplexEqFrom';
+import {ConsolidatedPaymentSizeForm} from './Consolidation/ConsolidatedPaymentSize';
+import {ConsolidatedPaymentTermForm} from './Consolidation/ConsolidatedPaymentTerm';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -91,7 +93,15 @@ const Task5: FC = () => {
                   <NominalComplexEqForm/>
                   <Divider/>
               </TabPane>
+              <TabPane tab="5.2. Фінансова еквівалентність зобов’язань та конверсія платежів. Консолідація виплат" key={2}>
+                  <Title level={5}>Визначення розміру консолідованого платежу</Title>
+                  <ConsolidatedPaymentSizeForm/>
+                  <Divider/>
 
+                  <Title level={5}>Визначення терміну консолідованого платежу</Title>
+                  <ConsolidatedPaymentTermForm/>
+                  <Divider/>
+              </TabPane>
           </Tabs>
       </div>
     </div>
