@@ -1,8 +1,8 @@
-import React, { FC, useCallback } from "react";
-import { Checkbox, Col, DatePicker, Form, InputNumber, Radio, Row } from "antd";
+import React, { FC, useCallback } from 'react';
+import { Checkbox, Col, DatePicker, Form, InputNumber, Radio, Row } from 'antd';
 
 import { round } from '../../../utils/helpers';
-import moment from "moment";
+import moment from 'moment';
 
 export interface SimpleRateFormulaProps { // completely done
     initialLoan: number;
@@ -41,61 +41,61 @@ const RateCalulationMethods: FC = () => {
     return (
         <div>
             <Form
-                name="task1"
+                name='task1'
                 form={form}
                 onValuesChange={handleChange}
-                layout="vertical"
-                className="form-content"
+                layout='vertical'
+                className='form-content'
             >
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="initialLoan"
-                            label="Початкова сума (P)"
+                            name='initialLoan'
+                            label='Початкова сума (P)'
                         >
-                            <InputNumber placeholder="100000" />
+                            <InputNumber placeholder='100000' />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="rate"
-                            label="Відсоткова ставка (і) %"
+                            name='rate'
+                            label='Відсоткова ставка (і) %'
                         >
-                            <InputNumber placeholder="25" />
+                            <InputNumber placeholder='25' />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="startOfTerm"
-                            label="Початок угоди (дата)"
+                            name='startOfTerm'
+                            label='Початок угоди (дата)'
                         >
                             <DatePicker />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="endOfTerm"
-                            label="Кінець угоди (дата)"
+                            name='endOfTerm'
+                            label='Кінець угоди (дата)'
                         >
                             <DatePicker />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="isLeapYear"
+                            name='isLeapYear'
                             valuePropName='checked'
                         >
                             <Checkbox >Високосний рік</Checkbox>
@@ -103,14 +103,14 @@ const RateCalulationMethods: FC = () => {
                     </Col>
                 </Row>
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Form.Item
-                        name="method"
-                        label="Метод"
+                        name='method'
+                        label='Метод'
                     >
                         <Radio.Group>
                             <Radio value={1}>АСТ/АСТ</Radio>
@@ -121,31 +121,31 @@ const RateCalulationMethods: FC = () => {
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="top"
+                    justify='start'
+                    align='top'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={8}>
                         <Form.Item
-                            name="daysAmount"
-                            label="Кількість днів позики (t)"
+                            name='daysAmount'
+                            label='Кількість днів позики (t)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="yearDaysAmount"
-                            label="Кількість днів у році (К)"
+                            name='yearDaysAmount'
+                            label='Кількість днів у році (К)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={8}>
                         <Form.Item
-                            name="eventualLoan"
-                            label="Нарощена сума (S)"
+                            name='eventualLoan'
+                            label='Нарощена сума (S)'
                         >
                             <InputNumber disabled />
                         </Form.Item>

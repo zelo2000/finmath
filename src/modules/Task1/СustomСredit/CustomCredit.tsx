@@ -1,5 +1,5 @@
-import React, { FC, useCallback } from "react";
-import { Col, Form, InputNumber, Row } from "antd";
+import React, { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
 
 import { round } from '../../../utils/helpers';
 
@@ -26,72 +26,72 @@ const CustomCredit: FC = () => {
     return (
         <div>
             <Form
-                name="task1"
+                name='task1'
                 form={form}
                 onValuesChange={handleChange}
-                layout="vertical"
-                className="form-content"
+                layout='vertical'
+                className='form-content'
             >
                 <Row
-                    justify="start"
-                    align="bottom"
+                    justify='start'
+                    align='bottom'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={6}>
                         <Form.Item
-                            name="initialLoan"
-                            label="Початкова сума (P)"
+                            name='initialLoan'
+                            label='Початкова сума (P)'
                         >
-                            <InputNumber placeholder="100000" />
+                            <InputNumber placeholder='100000' />
                         </Form.Item>
                     </Col>
                     <Col span={6}>
                         <Form.Item
-                            name="rate"
-                            label="Відсоткова ставка (і) %"
+                            name='rate'
+                            label='Відсоткова ставка (і) %'
                         >
-                            <InputNumber placeholder="15" />
+                            <InputNumber placeholder='15' />
                         </Form.Item>
                     </Col>
 
                     <Col span={6}>
                         <Form.Item
-                            name="term"
-                            label="Термін угоди у роках (n)"
+                            name='term'
+                            label='Термін угоди у роках (n)'
                         >
-                            <InputNumber placeholder="3" />
+                            <InputNumber placeholder='3' />
                         </Form.Item>
                     </Col>                    
 
                     <Col span={6}>
                         <Form.Item
-                            name="paymentCount"
-                            label="Кількість виплат у році (m)"
+                            name='paymentCount'
+                            label='Кількість виплат у році (m)'
                         >
-                            <InputNumber placeholder="12" />
+                            <InputNumber placeholder='12' />
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <Row
-                    justify="start"
-                    align="top"
+                    justify='start'
+                    align='top'
                     gutter={[16, 0]}
-                    className="row-without-margin"
+                    className='row-without-margin'
                 >
                     <Col span={6}>
                         <Form.Item
-                            name="eventualLoan"
-                            label="Нарощена сума (S)"
+                            name='eventualLoan'
+                            label='Нарощена сума (S)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={6}>
                         <Form.Item
-                            name="oneTimePayment"
-                            label="Величина разової виплати (R)"
+                            name='oneTimePayment'
+                            label='Величина разової виплати (R)'
                         >
                             <InputNumber disabled />
                         </Form.Item>
