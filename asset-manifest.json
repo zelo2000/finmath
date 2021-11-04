@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/finmath/static/css/main.9221ba19.chunk.css",
-    "main.js": "/finmath/static/js/main.636cba3f.chunk.js",
-    "main.js.map": "/finmath/static/js/main.636cba3f.chunk.js.map",
-    "runtime-main.js": "/finmath/static/js/runtime-main.b6f31840.js",
-    "runtime-main.js.map": "/finmath/static/js/runtime-main.b6f31840.js.map",
-    "static/css/2.786ae0dd.chunk.css": "/finmath/static/css/2.786ae0dd.chunk.css",
-    "static/js/2.a497fb13.chunk.js": "/finmath/static/js/2.a497fb13.chunk.js",
-    "static/js/2.a497fb13.chunk.js.map": "/finmath/static/js/2.a497fb13.chunk.js.map",
-    "static/js/3.aa7fd60d.chunk.js": "/finmath/static/js/3.aa7fd60d.chunk.js",
-    "static/js/3.aa7fd60d.chunk.js.map": "/finmath/static/js/3.aa7fd60d.chunk.js.map",
-    "index.html": "/finmath/index.html",
-    "static/css/2.786ae0dd.chunk.css.map": "/finmath/static/css/2.786ae0dd.chunk.css.map",
-    "static/css/main.9221ba19.chunk.css.map": "/finmath/static/css/main.9221ba19.chunk.css.map",
-    "static/js/2.a497fb13.chunk.js.LICENSE.txt": "/finmath/static/js/2.a497fb13.chunk.js.LICENSE.txt"
+    "main.css": "/finmath-deploy/static/css/main.9221ba19.chunk.css",
+    "main.js": "/finmath-deploy/static/js/main.636cba3f.chunk.js",
+    "main.js.map": "/finmath-deploy/static/js/main.636cba3f.chunk.js.map",
+    "runtime-main.js": "/finmath-deploy/static/js/runtime-main.72af419a.js",
+    "runtime-main.js.map": "/finmath-deploy/static/js/runtime-main.72af419a.js.map",
+    "static/css/2.786ae0dd.chunk.css": "/finmath-deploy/static/css/2.786ae0dd.chunk.css",
+    "static/js/2.c261f647.chunk.js": "/finmath-deploy/static/js/2.c261f647.chunk.js",
+    "static/js/2.c261f647.chunk.js.map": "/finmath-deploy/static/js/2.c261f647.chunk.js.map",
+    "static/js/3.aa7fd60d.chunk.js": "/finmath-deploy/static/js/3.aa7fd60d.chunk.js",
+    "static/js/3.aa7fd60d.chunk.js.map": "/finmath-deploy/static/js/3.aa7fd60d.chunk.js.map",
+    "index.html": "/finmath-deploy/index.html",
+    "static/css/2.786ae0dd.chunk.css.map": "/finmath-deploy/static/css/2.786ae0dd.chunk.css.map",
+    "static/css/main.9221ba19.chunk.css.map": "/finmath-deploy/static/css/main.9221ba19.chunk.css.map",
+    "static/js/2.c261f647.chunk.js.LICENSE.txt": "/finmath-deploy/static/js/2.c261f647.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b6f31840.js",
+    "static/js/runtime-main.72af419a.js",
     "static/css/2.786ae0dd.chunk.css",
-    "static/js/2.a497fb13.chunk.js",
+    "static/js/2.c261f647.chunk.js",
     "static/css/main.9221ba19.chunk.css",
     "static/js/main.636cba3f.chunk.js"
   ]
