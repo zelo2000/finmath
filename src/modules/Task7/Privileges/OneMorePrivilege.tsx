@@ -1,7 +1,6 @@
-import {FC, useCallback} from 'react';
-import {Checkbox, Col, Form, InputNumber, Row} from 'antd';
-import {round} from '../../../utils/helpers';
-import {createWriteStream} from 'fs';
+import { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
+import { round } from '../../../utils/helpers';
 
 export interface OneMorePrivilegeFormProps {
     n: number;
@@ -17,16 +16,16 @@ export const OneMorePrivilegeForm: FC = () => {
     const [form] = Form.useForm<OneMorePrivilegeFormProps>();
 
     const handleChanges = useCallback((_, allValues: OneMorePrivilegeFormProps) => {
-        let {n, g, i, D, L} = allValues;
+        let { n, g, i, D, L } = allValues;
 
-        if(!n || !g || !i || !D || !L) return;
+        if (!n || !g || !i || !D || !L) return;
 
-        const a = (n: number, i: number) => (1 - Math.pow((1 + i/100), -n)) / (i/100);
+        const a = (n: number, i: number) => (1 - Math.pow((1 + i / 100), -n)) / (i / 100);
 
-        const w = 1 - (a(n - L, i)/a(n - L, g))*Math.pow((1 + g/100)/(1 + i/100), L);
+        const w = 1 - (a(n - L, i) / a(n - L, g)) * Math.pow((1 + g / 100) / (1 + i / 100), L);
         const W = D * w;
 
-        form.setFieldsValue({W: round(W, 2), w: round(w, 2)});
+        form.setFieldsValue({ W: round(W, 2), w: round(w, 2) });
     }, [form]);
 
     return (
@@ -49,7 +48,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"D"}
                             label={"Величина заборгованості (D)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -57,7 +56,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"g"}
                             label={"Пільгова відсоткова ставка (g) %"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -65,7 +64,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"i"}
                             label={"Ринкова відсоткова ставка (i) %"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -73,7 +72,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"n"}
                             label={"Термін позики n"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -81,7 +80,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"L"}
                             label={"Пільговий період (L)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -96,7 +95,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"W"}
                             label={"Абсолютний грант-елемент (W)"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -104,7 +103,7 @@ export const OneMorePrivilegeForm: FC = () => {
                             name={"w"}
                             label={"Відносний грант-елемент (w)"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                 </Row>

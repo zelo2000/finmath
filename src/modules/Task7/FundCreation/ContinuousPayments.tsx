@@ -1,7 +1,6 @@
-import {FC, useCallback} from 'react';
-import {Checkbox, Col, Form, InputNumber, Row} from 'antd';
-import {round} from '../../../utils/helpers';
-import {createWriteStream} from 'fs';
+import { FC, useCallback } from 'react';
+import { Checkbox, Col, Form, InputNumber, Row } from 'antd';
+import { round } from '../../../utils/helpers';
 
 export interface ContinuousPaymentsProps {
     Y: number;
@@ -16,12 +15,12 @@ export const ContinuousPayments: FC = () => {
     const [form] = Form.useForm<ContinuousPaymentsProps>();
 
     const handleChanges = useCallback((_, allValues: ContinuousPaymentsProps) => {
-        const {D, g, I, n, isCapitalized} = allValues;
-        if(!D || !g || !I || !n) return;
+        const { D, g, I, n, isCapitalized } = allValues;
+        if (!D || !g || !I || !n) return;
 
-        const S = (Math.pow(1 + I/100, n) - 1)/I * 100;
-        const Y = !isCapitalized ? D * g/100 + D/S : D*Math.pow((1+g/100), n)/S;
-        form.setFieldsValue({Y: round(Y, 2)});
+        const S = (Math.pow(1 + I / 100, n) - 1) / I * 100;
+        const Y = !isCapitalized ? D * g / 100 + D / S : D * Math.pow((1 + g / 100), n) / S;
+        form.setFieldsValue({ Y: round(Y, 2) });
     }, [form]);
 
     return (
@@ -52,7 +51,7 @@ export const ContinuousPayments: FC = () => {
                             name={"D"}
                             label={"Величина заборгованості (D)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -60,7 +59,7 @@ export const ContinuousPayments: FC = () => {
                             name={"g"}
                             label={"Відсоткова ставка за позикою (g) %"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -68,7 +67,7 @@ export const ContinuousPayments: FC = () => {
                             name={"I"}
                             label={"Проценти за позикою (I) %"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -76,7 +75,7 @@ export const ContinuousPayments: FC = () => {
                             name={"n"}
                             label={"Термін позики n"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -91,7 +90,7 @@ export const ContinuousPayments: FC = () => {
                             name={"Y"}
                             label={"Термінова виплата (Y)"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                 </Row>

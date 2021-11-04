@@ -1,8 +1,6 @@
-import {FC, useCallback} from 'react';
-import {Checkbox, Col, Form, InputNumber, Row} from 'antd';
-import {round} from '../../../utils/helpers';
-import {createWriteStream} from 'fs';
-import {SIGUSR1} from 'constants';
+import { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
+import { round } from '../../../utils/helpers';
 
 export interface AllEqualProps {
     Y: number;
@@ -15,13 +13,13 @@ export const AllEqual: FC = () => {
     const [form] = Form.useForm<AllEqualProps>();
 
     const handleChanges = useCallback((_, allValues: AllEqualProps) => {
-        let {D, g, n,} = allValues;
-        if(!D || !g || !n) return;
+        let { D, g, n, } = allValues;
+        if (!D || !g || !n) return;
 
-        const a = (1 - Math.pow((1 + g/100), -n))/(g/100)
+        const a = (1 - Math.pow((1 + g / 100), -n)) / (g / 100)
         const Y = D / a;
 
-        form.setFieldsValue({Y: round(Y, 2)});
+        form.setFieldsValue({ Y: round(Y, 2) });
     }, [form]);
 
     return (
@@ -45,7 +43,7 @@ export const AllEqual: FC = () => {
                             name={"D"}
                             label={"Величина заборгованості (D)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -53,7 +51,7 @@ export const AllEqual: FC = () => {
                             name={"g"}
                             label={"Відсоткова ставка за позикою (g) %"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -61,7 +59,7 @@ export const AllEqual: FC = () => {
                             name={"n"}
                             label={"Термін позики n"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -76,7 +74,7 @@ export const AllEqual: FC = () => {
                             name={"Y"}
                             label={"Термінова виплата (Y)"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                 </Row>

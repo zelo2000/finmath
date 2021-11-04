@@ -1,8 +1,6 @@
-import {FC, useCallback} from 'react';
-import {Checkbox, Col, Form, InputNumber, Row} from 'antd';
-import {round} from '../../../utils/helpers';
-import {createWriteStream} from 'fs';
-import {SIGUSR1} from 'constants';
+import { FC, useCallback } from 'react';
+import { Col, Form, InputNumber, Row } from 'antd';
+import { round } from '../../../utils/helpers';
 
 export interface NotConstantPaymentsProps {
     Y: number;
@@ -17,18 +15,18 @@ export const AmortizationEqual: FC = () => {
     const [form] = Form.useForm<NotConstantPaymentsProps>();
 
     const handleChanges = useCallback((_, allValues: NotConstantPaymentsProps) => {
-        let {D, g, n, t} = allValues;
-        if(!D || !g || !n || !t) return;
+        let { D, g, n, t } = allValues;
+        if (!D || !g || !n || !t) return;
 
         let Dt_1 = D;
         t--;
-        while(t > 0){
-            Dt_1 = Dt_1 * (n-1)/n;
+        while (t > 0) {
+            Dt_1 = Dt_1 * (n - 1) / n;
             t--;
         }
 
-        const Yt = Dt_1*g/100+D/n;
-        form.setFieldsValue({Y: round(Yt, 2), Dt_1: round(Dt_1, 2)});
+        const Yt = Dt_1 * g / 100 + D / n;
+        form.setFieldsValue({ Y: round(Yt, 2), Dt_1: round(Dt_1, 2) });
     }, [form]);
 
     return (
@@ -52,7 +50,7 @@ export const AmortizationEqual: FC = () => {
                             name={"D"}
                             label={"Величина заборгованості (D)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -60,7 +58,7 @@ export const AmortizationEqual: FC = () => {
                             name={"g"}
                             label={"Відсоткова ставка за позикою (g) %"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -68,7 +66,7 @@ export const AmortizationEqual: FC = () => {
                             name={"n"}
                             label={"Термін позики n"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -76,7 +74,7 @@ export const AmortizationEqual: FC = () => {
                             name={"t"}
                             label={"Номер платежа (t)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -91,7 +89,7 @@ export const AmortizationEqual: FC = () => {
                             name={"Y"}
                             label={"Термінова виплата (Y_t)"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -99,7 +97,7 @@ export const AmortizationEqual: FC = () => {
                             name={"Dt_1"}
                             label={"Залишок боргу (Dt-1)"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                 </Row>

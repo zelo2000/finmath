@@ -1,7 +1,6 @@
-import {FC, useCallback} from 'react';
-import {Checkbox, Col, Form, Input, InputNumber, Row} from 'antd';
-import {round} from '../../../utils/helpers';
-import {createWriteStream} from 'fs';
+import { FC, useCallback } from 'react';
+import { Checkbox, Col, Form, Input, InputNumber, Row } from 'antd';
+import { round } from '../../../utils/helpers';
 
 export interface ConsolidatedPaymentTermProps {
     n0: number;
@@ -16,10 +15,10 @@ export const ConsolidatedPaymentTermForm: FC = () => {
     const [form] = Form.useForm<ConsolidatedPaymentTermProps>();
 
     const handleChanges = useCallback((_, allValues: ConsolidatedPaymentTermProps) => {
-        let {S0, S, n, isComplex, i} = allValues;
+        let { S0, S, n, isComplex, i } = allValues;
 
         i /= 100;
-        if(!S0 || !S || !n || !i) return;
+        if (!S0 || !S || !n || !i) return;
 
         const SArr = S.split(',').map(x => +x);
         const nArr = n.split(',').map(x => +x);
@@ -28,24 +27,24 @@ export const ConsolidatedPaymentTermForm: FC = () => {
 
         let n0 = 0;
 
-        if(isComplex){
+        if (isComplex) {
             let sum = 0;
-            for (let s of SnZipped){
-                sum += s[0]* Math.pow(1 + i, -s[1]/365);
+            for (let s of SnZipped) {
+                sum += s[0] * Math.pow(1 + i, -s[1] / 365);
             }
 
-            n0 = Math.log(S0/sum)/Math.log(1 + i);
+            n0 = Math.log(S0 / sum) / Math.log(1 + i);
         }
         else {
             let sum = 0;
-            for (let s of SnZipped){
-                sum += s[0]* Math.pow((1 + s[1]*i/365), -1);
+            for (let s of SnZipped) {
+                sum += s[0] * Math.pow((1 + s[1] * i / 365), -1);
             }
 
-            n0 = (S0/sum - 1) / i;
+            n0 = (S0 / sum - 1) / i;
         }
 
-        form.setFieldsValue({ n0: round(n0 * 365, 2)});
+        form.setFieldsValue({ n0: round(n0 * 365, 2) });
     }, [form]);
 
     return (
@@ -68,7 +67,7 @@ export const ConsolidatedPaymentTermForm: FC = () => {
                             name={"S"}
                             label={"Платежі розділені комами (S)"}
                         >
-                            <Input placeholder="5"/>
+                            <Input placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -76,7 +75,7 @@ export const ConsolidatedPaymentTermForm: FC = () => {
                             name={"n"}
                             label={"Терміни платежів у днях розділені комами (n)"}
                         >
-                            <Input placeholder="5"/>
+                            <Input placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -84,7 +83,7 @@ export const ConsolidatedPaymentTermForm: FC = () => {
                             name={"S0"}
                             label={"Сума консолідованого платежу"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -92,7 +91,7 @@ export const ConsolidatedPaymentTermForm: FC = () => {
                             name={"i"}
                             label={"Ставка (i)"}
                         >
-                            <InputNumber placeholder="5"/>
+                            <InputNumber placeholder="5" />
                         </Form.Item>
                     </Col>
                     <Col span={5}>
@@ -115,7 +114,7 @@ export const ConsolidatedPaymentTermForm: FC = () => {
                             name={"n0"}
                             label={"Термін консолідованого платежу"}
                         >
-                            <InputNumber disabled/>
+                            <InputNumber disabled />
                         </Form.Item>
                     </Col>
                 </Row>
